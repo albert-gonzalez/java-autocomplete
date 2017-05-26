@@ -40,9 +40,9 @@ public class GamesController extends Controller {
                 .thenApplyAsync((count) -> ok(Json.toJson(count)));
     }
 
-    public CompletionStage<Result> autoCompleteSearch(String query) {
+    public CompletionStage<Result> autoCompleteSearch(String q) {
         return autoCompleteSearchCommandHandler
-                .handle(new AutoCompleteSearchCommand(query))
+                .handle(new AutoCompleteSearchCommand(q))
                 .thenApplyAsync(response -> ok(Json.toJson(response)));
     }
 }

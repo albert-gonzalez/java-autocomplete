@@ -40,7 +40,7 @@ public class GameRepository implements games.domain.repositories.GameRepository 
         final JsonNode json = Json.parse(is);
         for (JsonNode jsonNode : json) {
             gamesList.add(
-                new Game(jsonNode.get("name").toString(), jsonNode.get("description").toString(), jsonNode.get("site_detail_url").toString()));
+                new Game(jsonNode.get("name").asText(), jsonNode.get("description").asText(), jsonNode.get("site_detail_url").asText()));
         }
 
         return gamesList.stream();

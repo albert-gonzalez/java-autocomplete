@@ -1,0 +1,54 @@
+{
+  "name": "java-autocomplete",
+  "version": "1.0.0",
+  "description": "Java autocomplete with VUE",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development webpack --progress --colors --watch",
+    "build": "NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albert-gonzalez/java-autocomplete.git"
+  },
+  "keywords": [
+    "java",
+    "autocomplete",
+    "vue"
+  ],
+  "author": "Albert González",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/albert-gonzalez/java-autocomplete/issues"
+  },
+  "homepage": "https://github.com/albert-gonzalez/java-autocomplete#readme",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.3",
+    "file-loader": "^0.11.1",
+    "foundation-sites": "^6.3.1",
+    "lodash": "^4.17.4",
+    "node-sass": "^4.5.3",
+    "qwest": "^4.4.6",
+    "sass-loader": "^6.0.5",
+    "vue-loader": "^12.1.1",
+    "vue-template-compiler": "^2.3.3",
+    "vue": "^2.3.3",
+    "webpack": "^v2.6.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "es2015",
+        {
+          "modules": false
+        }
+      ]
+    ]
+  }
+}

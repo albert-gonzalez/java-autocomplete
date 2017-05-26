@@ -75,9 +75,9 @@ public class GameRepository implements games.domain.repositories.GameRepository 
         games.forEach((game) -> {
             HttpEntity entity = new NStringEntity(
                     "{\n" +
-                            "    \"getName\" : \"" + StringEscapeUtils.escapeJson(game.getName()) + "\",\n" +
-                            "    \"getDescription\" : \"" + StringEscapeUtils.escapeJson(game.getDescription()) + "\",\n" +
-                            "    \"getUrl\" : \"" + StringEscapeUtils.escapeJson(game.getUrl()) + "\"\n" +
+                            "    \"name\" : \"" + StringEscapeUtils.escapeJson(game.getName()) + "\",\n" +
+                            "    \"description\" : \"" + StringEscapeUtils.escapeJson(game.getDescription()) + "\",\n" +
+                            "    \"url\" : \"" + StringEscapeUtils.escapeJson(game.getUrl()) + "\"\n" +
                             "}", ContentType.APPLICATION_JSON);
 
             try {

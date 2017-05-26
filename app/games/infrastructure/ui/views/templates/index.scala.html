@@ -1,6 +1,14 @@
-@(gameName: String)
-
-@main("Welcome to Play") {
-  <h1>Welcome to Play!</h1>
-  <h2>Game added: @gameName</h2>
+@main("Autocomplete Example") {
+  <div class="row">
+    <div class="column">
+      <h1>Games Autocomplete Example</h1>
+      <div id="game-list" class="row">
+        <div class="column small-12">
+          <label>Search a game:
+            <input class="large" type="text" placeholder="Your search"/>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
 }

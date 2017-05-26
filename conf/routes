@@ -5,8 +5,10 @@
 # An example controller showing a sample home page
 GET     /api/games/load-from-json               games.infrastructure.delivery.api.controllers.GamesController.loadFromJson
 GET     /api/games/update-es-index              games.infrastructure.delivery.api.controllers.GamesController.updateESIndex
-GET     /api/games/autocomplete/:query          games.infrastructure.delivery.api.controllers.GamesController.autoCompleteSearch(query: String)
-GET     /                                       games.infrastructure.delivery.api.controllers.TestController.test
+GET     /api/games/autocomplete                games.infrastructure.delivery.api.controllers.GamesController.autoCompleteSearch(q: String ?= "")
+GET     /                                       games.infrastructure.delivery.web.controllers.GamesController.index
+GET     /test                                       games.infrastructure.delivery.api.controllers.TestController.test
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file        controllers.Assets.versioned(path="/app/games/infrastructure/ui/assets", file: Asset)
+GET     /assets/*file        controllers.Assets.versioned(path="/public", file: Asset)
+
