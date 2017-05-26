@@ -1,3 +1,3 @@
 # Java Autocomplete
 
-Java example with Playframework, Spring, and Elasticsearch
+Java example with Play Framework, Spring, and Elasticsearch
