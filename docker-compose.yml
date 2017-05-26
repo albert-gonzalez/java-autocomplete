@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+#  java:
+#    build:
+#      context: .
+#      dockerfile: conf/docker/java/Dockerfile
+#    ports:
+#      - 9000:9000
+#    volumes:
+#      - sbtcache:/root/.ivy2
+#    stdin_open: true
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.4.0
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - esdata1:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+  mysql:
+    image: mysql:5
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: default
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql:/var/lib/mysql
+
+volumes:
+  esdata1:
+    driver: local
+  sbtcache:
+    driver: local
+  mysql:
+    driver: local
