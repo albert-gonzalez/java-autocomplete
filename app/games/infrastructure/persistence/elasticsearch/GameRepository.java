@@ -22,6 +22,8 @@ import org.elasticsearch.client.RestClientBuilder;
 import play.libs.Json;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -67,7 +69,13 @@ public class GameRepository implements games.domain.repositories.GameRepository 
 
     @Override
     public CompletionStage<Stream<Game>> autoCompleteSearch(String query) {
-        return supplyAsync(() -> list(query), executionContext);
+        return supplyAsync(() -> {
+            try {
+                return list(URLEncoder.encode(query, "UTF-8"));
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException("Invalid query");
+            }
+        }, executionContext);
     }
 
     private Stream<Game> index(Stream<Game> games) {
