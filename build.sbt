@@ -15,3 +15,6 @@ libraryDependencies ++= Seq(
   "org.hibernate" % "hibernate-entitymanager" % "5.2.5.Final" // replace by your jpa implementation
 )
 libraryDependencies += evolutions
+
+libraryDependencies += "org.mockito" % "mockito-core" % "2.8.9" % "test"
+libraryDependencies += "org.assertj" % "assertj-core" % "3.8.0"
