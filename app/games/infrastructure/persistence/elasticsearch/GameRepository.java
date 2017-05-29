@@ -19,6 +19,7 @@ import org.apache.http.util.EntityUtils;
 import org.elasticsearch.client.Response;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
+import play.Configuration;
 import play.libs.Json;
 
 import java.io.IOException;
@@ -40,14 +41,17 @@ public class GameRepository implements games.domain.repositories.GameRepository 
 
 
     @Inject
-    public GameRepository(DatabaseExecutionContext executionContext) {
+    public GameRepository(
+            DatabaseExecutionContext executionContext,
+            Configuration configuration
+    ) {
         this.executionContext = executionContext;
 
         final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
         credentialsProvider.setCredentials(AuthScope.ANY,
                 new UsernamePasswordCredentials("elastic", "changeme"));
 
-        this.restClient = RestClient.builder(new HttpHost("192.168.99.100", 9200))
+        this.restClient = RestClient.builder(new HttpHost(configuration.getString("elastic_host"), 9200))
                 .setHttpClientConfigCallback(new RestClientBuilder.HttpClientConfigCallback() {
                     @Override
                     public HttpAsyncClientBuilder customizeHttpClient(HttpAsyncClientBuilder httpClientBuilder) {
