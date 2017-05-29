@@ -1,9 +1,13 @@
 package games.application.handler.updateGamesIndex;
 
 public class UpdateGamesIndexResponse {
-    public Long count;
+    private Long count;
 
-    public UpdateGamesIndexResponse(Long count) {
+    UpdateGamesIndexResponse(Long count) {
         this.count = count;
+    }
+
+    public Long getCount() {
+        return count;
     }
 }

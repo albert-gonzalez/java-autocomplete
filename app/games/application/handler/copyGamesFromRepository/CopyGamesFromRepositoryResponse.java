@@ -1,9 +1,13 @@
 package games.application.handler.copyGamesFromRepository;
 
 public class CopyGamesFromRepositoryResponse {
-    public Long count;
+    private Long count;
 
-    public CopyGamesFromRepositoryResponse(Long count) {
+    CopyGamesFromRepositoryResponse(Long count) {
         this.count = count;
+    }
+
+    public Long getCount() {
+        return count;
     }
 }

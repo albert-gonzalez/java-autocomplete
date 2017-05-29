@@ -7,7 +7,7 @@ public class AutoCompleteSearchCommand {
         this.query = query;
     }
 
-    public String query() {
+    String query() {
         return query;
     }
 }

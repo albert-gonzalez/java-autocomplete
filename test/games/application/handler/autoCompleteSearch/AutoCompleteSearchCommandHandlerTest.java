@@ -1,4 +1,4 @@
-package games.application.handler;
+package games.application.handler.autoCompleteSearch;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import games.application.handler.autoCompleteSearch.AutoCompleteSearchCommand;

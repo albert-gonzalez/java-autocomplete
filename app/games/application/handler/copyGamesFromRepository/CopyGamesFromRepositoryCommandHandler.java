@@ -20,12 +20,12 @@ public class CopyGamesFromRepositoryCommandHandler {
     private CopyGamesService copyGamesService;
 
     @Inject
-    public CopyGamesFromRepositoryCommandHandler(GameRepository gameRepository,
-                                                 GameRepository jsonGameRepository,
+    public CopyGamesFromRepositoryCommandHandler(GameRepository sourceGameRepository,
+                                                 GameRepository destGameRepository,
                                                  CopyGamesService copyGamesService
     ) {
-        this.destGameRepository = gameRepository;
-        this.sourceGameRepository = jsonGameRepository;
+        this.sourceGameRepository = sourceGameRepository;
+        this.destGameRepository = destGameRepository;
         this.copyGamesService = copyGamesService;
     }
 
